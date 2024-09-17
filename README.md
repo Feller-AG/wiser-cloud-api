@@ -64,7 +64,6 @@ curl --request GET \
 ## Site
 
 ### Get all accessible site details
-* **Description:** Add here description... 
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites`
 * **Method:** `GET`
 * **Summary:** Get all accessible site details

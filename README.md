@@ -13,6 +13,10 @@ This guide is divided into two main sections:
 ## Authentication
 A Machine to Machine Application represents a program that interacts with an API where there is no user involved.
 
+**Please note that the provided access_token is short-lived and will expire 2 hours after its creation. You will need to generate a new token after it expires.**
+
+![image info](./images/api_flow.png)
+
 ### Getting an access token for your API
 You can execute a client credentials exchange to get an access token for Wiser By Feller cloud. Example in curl.
 ```console

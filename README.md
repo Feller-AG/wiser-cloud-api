@@ -49,6 +49,7 @@ curl --request GET \
   --header 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9UTTBOa1JHUVRjM01FWXlPVU5GT1RZd1F6RXlSVGd6T0RaQ09EUkVRak5DT1RJME9EQTVOZyJ9.eyJpc3MiOiJodHRwczovL2ZlbGxlci5ldS5hdXRoMC5jb20vIiwic3ViIjoiWk9POEx5SkROdVZiakRveHhDZzJyQ0l2OU5VYTNCeXNAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vaWQuZmVsbGVyLmNoL3dpc2VyLXBhcnRuZXJzIiwiaWF0IjoxNzIxMjIwMjkxLCJleHAiOjE3MjEzMDY2OTEsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyIsImF6cCI6IlpPTzhMeUpETnVWYmpEb3h4Q2cyckNJdjlOVWEzQnlzIn0.lxko2VgQcPSNnaHBzBVSmtnbsgejrfT1RNHoojvdSurL0s3StDlbAUkKYUUar4jFtosaC5_f3t_rJXJHItCRczhVopPvxRwx_s9dTVI30htMqBgft9X41MkOWyqph49J8YO3DXxO68jadoV2XH7dgUdk1ri4-JGdGo7XOpkmPsWwCJNs8uM-9xB95LDU47Gmq7gAGX5cwmTEvrrCyCHV8_0qVRR0FBprWfkPfKfUBuERR-31HQWe_xsB9jO_S4jSFdIccT64MM29uG9zzsKvA0-M15IeEg5cCbmL3bqwlh5YsxfWAkEKxkQic7Y3_oTHDt0x0ePppMzDDIVXSa7lYA'
 ```
 
+***
 
 ## API Documentation
 
@@ -67,7 +68,7 @@ A site is a Wiser installation. If the user has granted access to your applicati
 ### Get all accessible sites
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites`
 * **Method:** `GET`
-* **Description:** Get all accessible sites. Returns the site ID and if the site is online or not
+* **Description:** Get all accessible sites. Returns the site ID and indicates whether the site is online or not.
 
 ```json
 {
@@ -113,7 +114,6 @@ Site details provide all available information about the site. The 'hvac' field 
 ```
 
 ## Heating-controls
-
 * "hvac group" = heating zone (e.g. room) defined by electrician in the eSetup
 * "Boost" = this function increases room temperature from the current temperature set point
 * "Target temperature" = Desired temperature for the heating zone (i.e. room temperature)

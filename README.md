@@ -55,7 +55,7 @@ curl --request GET \
 * [Site](#site)
     * [Get all accessible sites](#get-all-accessible-site-details)
     * [Get site details](#get-site-details)
-* [HVAC](#hvac)
+* [Heating-controls](#heating-controls)
     * [Boost using default boost temperature for site](#boost-using-default-boost-temperature-for-site)
     * [Set boost temperature by hvacgroup](#set-boost-temperature-by-hvac-group)
     * [Set target temperature by hvac group](#set-target-temperature-by-hvac-group)
@@ -112,7 +112,7 @@ Site details provide all available information about the site. The 'hvac' field 
 }
 ```
 
-## Heating controls
+## Heating-controls
 
 * "hvac group" = heating zone defined by electrician in the eSetup. Normally a room
 * "Boost" = this function increases room temperature from the current temperature set point

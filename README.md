@@ -53,7 +53,7 @@ curl --request GET \
 ## API Documentation
 
 * [Site](#site)
-    * [Get all accessible site details](#get-all-accessible-site-details)
+    * [Get all accessible sites](#get-all-accessible-site-details)
     * [Get site details](#get-site-details)
 * [HVAC](#hvac)
     * [Boost using default boost temperature for site](#boost-using-default-boost-temperature-for-site)
@@ -81,6 +81,7 @@ A site is a Wiser installation. If the user has granted access to your applicati
 ```
 
 ### Get site details
+Site details provide all available information about the site. The 'hvac' field contains the id of the heating group.
 
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}`
 * **Method:** `GET`
@@ -113,10 +114,10 @@ A site is a Wiser installation. If the user has granted access to your applicati
 
 ## Heating controls
 
-"hvac group" = heating zone defined by electrician in the eSetup. Normally a room
-"Boost" = this function increases room temperature from the current set point
-"Target temperature" = Desired temperature for the heating zone (i.e. room temperature)
-"Valve level" = Approximation of the valve opening 0 = closed, 5000 = 50 %, 10000 fully open)
+* "hvac group" = heating zone defined by electrician in the eSetup. Normally a room
+* "Boost" = this function increases room temperature from the current temperature set point
+* "Target temperature" = Desired temperature for the heating zone (i.e. room temperature)
+* "Valve level" = Approximation of the valve opening: 0 = closed, 5000 = 50 %, 10000 fully open)
 
 
 ### Boost using default boost temperature for the site
@@ -133,7 +134,7 @@ A site is a Wiser installation. If the user has granted access to your applicati
   }
   ```
 
-### Set boost temperature by heating (hvac) group
+### Set boost temperature by hvac group
 
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/boost-temperature`
 * **Method:** `PUT`

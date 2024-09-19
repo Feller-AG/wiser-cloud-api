@@ -64,14 +64,10 @@ curl --request GET \
 ## Site
 A site is a Wiser installation. If the user has granted access to your application, the site is considered 'accessible'.
 
-### Get all accessible sites for your application
+### Get all accessible sites
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites`
 * **Method:** `GET`
 * **Description:** Get all accessible sites. Returns the site ID and if the site is online or not
-* **Responses:**
-    * **200:** 200
-* **Security:**
-    * bearerAuthJWT
 
 ```json
 {
@@ -88,14 +84,9 @@ A site is a Wiser installation. If the user has granted access to your applicati
 
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}`
 * **Method:** `GET`
-* **Description:** Get all site details* **Parameters:**
+* **Description:** Get all site details*
+* **Parameters:**
     * **siteId** `(path, string, required)` - The id of the site.
-* **Responses:**
-    * **200:** 200
-    * **400:** 400
-    * **403:** 403
-* **Security:**
-    * bearerAuthJWT
 
 ```json
 {
@@ -122,11 +113,17 @@ A site is a Wiser installation. If the user has granted access to your applicati
 
 ## Heating controls
 
+"hvac group" = heating zone defined by electrician in the eSetup. Normally a room
+"Boost" = this function increases room temperature from the current set point
+"Target temperature" = Desired temperature for the heating zone (i.e. room temperature)
+"Valve level" = Approximation of the valve opening 0 = closed, 5000 = 50 %, 10000 fully open)
+
+
 ### Boost using default boost temperature for the site
 
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/boost`
 * **Method:** `PUT`
-* **Description:** Boost using default boost temperature for site. 
+* **Description:** Boost all room temperature using default (2 deg) boost temperature for the site. 
 * **Parameters:**
     * **siteId** `(path, string, required)`
 * **Request Body:**
@@ -135,13 +132,8 @@ A site is a Wiser installation. If the user has granted access to your applicati
     "enabled": true
   }
   ```
-* * **Responses:**
-    * **200:** 200
-    * **504:** 504
-* **Security:**
-    * bearerAuthJWT
 
-### Set boost temperature by hvac group
+### Set boost temperature by heating (hvac) group
 
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/boost-temperature`
 * **Method:** `PUT`
@@ -155,10 +147,6 @@ A site is a Wiser installation. If the user has granted access to your applicati
     "value": 2.5
   }
   ```
-* **Responses:**
-    * **200:** 200
-* **Security:**
-    * bearerAuthJWT
 
 ### Set target temperature by hvac group
 
@@ -174,10 +162,6 @@ A site is a Wiser installation. If the user has granted access to your applicati
     "value": 22.9
   }
   ```
-* **Responses:**
-    * **200:** 200
-* **Security:**
-    * bearerAuthJWT
 
 ### Set desired valve level by hvac group
 
@@ -193,8 +177,3 @@ A site is a Wiser installation. If the user has granted access to your applicati
     "value": 10000
   }
   ```
-* **Responses:**
-    * **200:** 200
-    * **400:** 400
-* **Security:**
-    * bearerAuthJWT

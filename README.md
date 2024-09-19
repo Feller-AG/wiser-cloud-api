@@ -114,11 +114,11 @@ Site details provide all available information about the site. The 'hvac' field 
 
 ## Heating-controls
 
-* "hvac group" = heating zone defined by electrician in the eSetup. Normally a room
+* "hvac group" = heating zone (e.g. room) defined by electrician in the eSetup
 * "Boost" = this function increases room temperature from the current temperature set point
 * "Target temperature" = Desired temperature for the heating zone (i.e. room temperature)
-* "Valve level" = Approximation of the valve opening: 0 = closed, 5000 = 50 %, 10000 fully open)
-
+* "Valve position" = **Approximation** of the valve opening: 0 = closed, 5000 = 50 %, 10000 fully open)
+***
 
 ### Boost using default boost temperature for the site
 
@@ -164,7 +164,7 @@ Site details provide all available information about the site. The 'hvac' field 
   }
   ```
 
-### Set desired valve level by hvac group
+### Set desired valve position by hvac group
 
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/valve-position`
 * **Method:** `PUT`

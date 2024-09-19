@@ -1,4 +1,4 @@
-# Wiser by Feller cloud API 
+# Wiser by Feller cloud API (in Work)
 
 The Wiser Cloud API is a service designed for partners who want to develop new applications for Wiser by Feller. Currently, we are providing access only for heating controls. Wiser by Feller end users have full control over which third-party apps they grant access to, and they can modify these settings at any time.
 As our onboarding process is currently in progress, we kindly ask you to contact us and provide details about your project by emailing customercare.feller@feller.ch with the subject line: "Partner Access Request." We will validate your request and provide the necessary information about the next steps. Please note that this service is exclusively available to Feller business partners and not to private individuals.
@@ -62,12 +62,12 @@ curl --request GET \
     * [Set desired valve position by hvac group](#set-desired-valve-position-by-hvac-group)
 
 ## Site
+A site is a Wiser installation. If the user has granted access to your application, the site is considered 'accessible'.
 
-### Get all accessible site details
+### Get all accessible sites for your application
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites`
 * **Method:** `GET`
-* **Summary:** Get all accessible site details
-* **Description:** Get all accessible site details
+* **Description:** Get all accessible sites. Returns the site ID and if the site is online or not
 * **Responses:**
     * **200:** 200
 * **Security:**
@@ -88,8 +88,7 @@ curl --request GET \
 
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}`
 * **Method:** `GET`
-* **Summary:** Get site details
-* **Description:** Get site details* **Parameters:**
+* **Description:** Get all site details* **Parameters:**
     * **siteId** `(path, string, required)` - The id of the site.
 * **Responses:**
     * **200:** 200
@@ -100,19 +99,34 @@ curl --request GET \
 
 ```json
 {
-  "id": "bdeb2e4c-9531-4865- acb9- d912b30c277b",
-  "online": true
+        "id": "4c788521-9001-4bdd-9287-0e9b544c411e",
+        "online": true,
+        "hvac": [
+            {
+                "id": 1,
+                "ambientTemperature": 21.5,
+                "targetTemperature": 25.5,
+                "boost_temperature": 2,     
+                "unit": "C"
+            },
+            {
+                "id": 2,
+                "ambientTemperature": 21.5,
+                "targetTemperature": 25.5,
+                 "boost_temperature": 2,     
+                "unit": "C"
+             }
+        ]
 }
 ```
 
-## HVAC
+## Heating controls
 
-### Boost using default boost temperature for site
+### Boost using default boost temperature for the site
 
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/boost`
 * **Method:** `PUT`
-* **Summary:** Boost using default boost temperature for site
-* **Description:** Boost using default boost temperature for site
+* **Description:** Boost using default boost temperature for site. 
 * **Parameters:**
     * **siteId** `(path, string, required)`
 * **Request Body:**
@@ -131,10 +145,9 @@ curl --request GET \
 
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/boost-temperature`
 * **Method:** `PUT`
-* **Summary:** Set boost temperature by hvac group
 * **Description:** Set boost temperature by hvac group
 * **Parameters:**
-    * **siteId** `(path, string, required)` - The idof the site.
+    * **siteId** `(path, string, required)` - The id of the site.
     * **hvacGroupId** `(path, string, required)` - The id of the hvac group.
 * **Request Body:**
   ```json
@@ -151,7 +164,6 @@ curl --request GET \
 
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/target-temperature`
 * **Method:** `PUT`
-* **Summary:** Set target temperature by hvac group
 * **Description:** Set target temperature by hvac group
 * **Parameters:**
     * **siteId** `(path, string, required)` - The id of the site.
@@ -167,19 +179,18 @@ curl --request GET \
 * **Security:**
     * bearerAuthJWT
 
-### Set desired valve position by hvac group
+### Set desired valve level by hvac group
 
 * **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/valve-position`
 * **Method:** `PUT`
-* **Summary:** Set desired valve position by hvac group
-* **Description:** Set desired valve position by hvac group
+* **Description:** Set desired valve level by hvac group. 0 = closed, 10000 = open
 * **Parameters:**
     * **siteId** `(path, string, required)` - The id of the site.
     * **hvacGroupId** `(path, string, required)` - The id of the hvac group.
 * **Request Body:**
   ```json
   {
-    "value": 10001
+    "value": 10000
   }
   ```
 * **Responses:**

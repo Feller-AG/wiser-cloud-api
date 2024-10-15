@@ -45,7 +45,7 @@ Now that the application has an access_token, it is now able to make authorized 
 Example:
 ```console
 curl --request GET \
-  --url http://user.nubes.feller.ch/api/partner/sites \
+  --url https://user.nubes.feller.ch/api/partner/sites \
   --header 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9UTTBOa1JHUVRjM01FWXlPVU5GT1RZd1F6RXlSVGd6T0RaQ09EUkVRak5DT1RJME9EQTVOZyJ9.eyJpc3MiOiJodHRwczovL2ZlbGxlci5ldS5hdXRoMC5jb20vIiwic3ViIjoiWk9POEx5SkROdVZiakRveHhDZzJyQ0l2OU5VYTNCeXNAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vaWQuZmVsbGVyLmNoL3dpc2VyLXBhcnRuZXJzIiwiaWF0IjoxNzIxMjIwMjkxLCJleHAiOjE3MjEzMDY2OTEsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyIsImF6cCI6IlpPTzhMeUpETnVWYmpEb3h4Q2cyckNJdjlOVWEzQnlzIn0.lxko2VgQcPSNnaHBzBVSmtnbsgejrfT1RNHoojvdSurL0s3StDlbAUkKYUUar4jFtosaC5_f3t_rJXJHItCRczhVopPvxRwx_s9dTVI30htMqBgft9X41MkOWyqph49J8YO3DXxO68jadoV2XH7dgUdk1ri4-JGdGo7XOpkmPsWwCJNs8uM-9xB95LDU47Gmq7gAGX5cwmTEvrrCyCHV8_0qVRR0FBprWfkPfKfUBuERR-31HQWe_xsB9jO_S4jSFdIccT64MM29uG9zzsKvA0-M15IeEg5cCbmL3bqwlh5YsxfWAkEKxkQic7Y3_oTHDt0x0ePppMzDDIVXSa7lYA'
 ```
 
@@ -66,7 +66,7 @@ curl --request GET \
 A site is a Wiser installation. If the user has granted access to your application, the site is considered 'accessible'.
 
 ### Get all accessible sites
-* **Path:** `http://user.nubes.feller.ch/api/partner/sites`
+* **Path:** `https://user.nubes.feller.ch/api/partner/sites`
 * **Method:** `GET`
 * **Description:** Get all accessible sites. Returns the site ID and indicates whether the site is online or not.
 
@@ -84,7 +84,7 @@ A site is a Wiser installation. If the user has granted access to your applicati
 ### Get site details
 Site details provide all available information about the site. The 'hvac' field contains the id of the heating group.
 
-* **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}`
+* **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}`
 * **Method:** `GET`
 * **Description:** Get all site details*
 * **Parameters:**
@@ -122,7 +122,7 @@ Site details provide all available information about the site. The 'hvac' field 
 
 ### Boost using default boost temperature for the site
 
-* **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/boost`
+* **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/boost`
 * **Method:** `PUT`
 * **Description:** Boost all room temperature using default (2 deg) boost temperature for the site. 
 * **Parameters:**
@@ -136,7 +136,7 @@ Site details provide all available information about the site. The 'hvac' field 
 
 ### Set boost temperature by hvac group
 
-* **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/boost-temperature`
+* **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/boost-temperature`
 * **Method:** `PUT`
 * **Description:** Set boost temperature by hvac group
 * **Parameters:**
@@ -151,7 +151,7 @@ Site details provide all available information about the site. The 'hvac' field 
 
 ### Set target temperature by hvac group
 
-* **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/target-temperature`
+* **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/target-temperature`
 * **Method:** `PUT`
 * **Description:** Set target temperature by hvac group
 * **Parameters:**
@@ -166,7 +166,7 @@ Site details provide all available information about the site. The 'hvac' field 
 
 ### Set desired valve position by hvac group
 
-* **Path:** `http://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/valve-position`
+* **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/valve-position`
 * **Method:** `PUT`
 * **Description:** Set desired valve level by hvac group. 0 = closed, 10000 = open
 * **Parameters:**

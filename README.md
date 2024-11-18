@@ -68,7 +68,7 @@ A site is a Wiser installation. If the user has granted access to your applicati
 ### Get all accessible sites
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites`
 * **Method:** `GET`
-* **Description:** Get all accessible sites. Returns the site ID and indicates whether the site is online or not.
+* **Description:** Get all accessible sites. Returns the site ID and indicates whether the site is online or not. If the service has requested a location, it's returned in "gpl"
 
 ```json
 {
@@ -76,13 +76,14 @@ A site is a Wiser installation. If the user has granted access to your applicati
     {
       "id": "bdeb2e4c-9531-4865- acb9- d912b30c277b",
       "online": true
+      "gpl":"47.24497900 8.18521610"
     }
   ]
 }
 ```
 
 ### Get site details
-Site details provide all available information about the site. The 'hvac' field contains the id of the heating group.
+Site details provide all available information about the site.
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}`
 * **Method:** `GET`
@@ -94,9 +95,11 @@ Site details provide all available information about the site. The 'hvac' field 
 {
         "id": "4c788521-9001-4bdd-9287-0e9b544c411e",
         "online": true,
+        "gpl":"47.24497900 8.18521610"
         "hvac": [
             {
                 "id": 1,
+                "on":true
                 "ambientTemperature": 21.5,
                 "targetTemperature": 25.5,
                 "boost_temperature": 2,     
@@ -104,23 +107,32 @@ Site details provide all available information about the site. The 'hvac' field 
             },
             {
                 "id": 2,
+                "on":true
                 "ambientTemperature": 21.5,
                 "targetTemperature": 25.5,
-                 "boost_temperature": 2,     
+                "boost_temperature": 2,     
                 "unit": "C"
              }
         ]
 }
 ```
 
+* "id" = "hvac group" = heating zone (e.g. a room) defined by electrician in the eSetup
+
+* "on" = indicates if heating (or cooling) is off or on 
+
+* "ambientTemperature" = current temperature in the heating zone
+
+* "targetTemperature" = set point temperature for the heating zone
+
+* "boost_temperature" = How much temperature will be increased from the set point. Default 2.
+
+
 ## Heating-controls
-* "hvac group" = heating zone (e.g. room) defined by electrician in the eSetup
-* "Boost" = this function increases room temperature from the current temperature set point
-* "Target temperature" = Desired temperature for the heating zone (i.e. room temperature)
-* "Valve position" = **Approximation** of the valve opening: 0 = closed, 5000 = 50 %, 10000 fully open)
-***
 
 ### Boost using default boost temperature for the site
+
+This function increases room temperature from the current temperature set point
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/boost`
 * **Method:** `PUT`
@@ -151,6 +163,8 @@ Site details provide all available information about the site. The 'hvac' field 
 
 ### Set target temperature by hvac group
 
+Set the desired temperature for the heating zone (i.e. room temperature)
+
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/target-temperature`
 * **Method:** `PUT`
 * **Description:** Set target temperature by hvac group
@@ -165,6 +179,8 @@ Site details provide all available information about the site. The 'hvac' field 
   ```
 
 ### Set desired valve position by hvac group
+
+Set the valve position. This is an **Approximation** of the valve opening: 0 = closed, 5000 = 50 %, 10000 fully open)
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/valve-position`
 * **Method:** `PUT`

@@ -122,7 +122,7 @@ Site details provide all available information about the site.
 "ambientTemperature" = current temperature in the heating zone <br>
 "targetTemperature" = desired temperature (set point) for the heating zone <br>
 "boost_temperature" = How much temperature will be increased from the set point (Default by 2 Deg.) <br>
-"unit" = unit used (C = Celcius)
+"unit" = degree unit used (C = Celsius)
 
 <br>
 

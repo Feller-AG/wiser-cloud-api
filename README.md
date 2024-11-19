@@ -68,7 +68,7 @@ A site is a Wiser installation. If the user has granted access to your applicati
 ### Get all accessible sites
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites`
 * **Method:** `GET`
-* **Description:** Get all accessible sites. Returns the site ID and indicates whether the site is online or not. If the service has requested a location, it's returned in "gpl"
+* **Description:** Get all accessible sites. Returns the site ID and indicates whether the site is online or not. The location (gpl property) is available if at least one service on the site has defined (requested) it 
 
 ```json
 {

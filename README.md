@@ -118,7 +118,7 @@ Site details provide all available information about the site.
 ```
 
 "id" = "hvac group" = heating zone (e.g. a room) defined by electrician in the eSetup App <br>
-"on" = If false, the user has excluded this zone from heating/cooling (i.e. heating is OFF) <br>
+"on" = If false, the user has excluded this zone from heating/cooling (i.e. heating is OFF) and boost ist set -99 <br>
 "ambientTemperature" = current temperature in the heating zone <br>
 "targetTemperature" = desired temperature (set point) for the heating zone <br>
 "boost_temperature" = How much temperature will be increased from the set point (Default by 2 Deg.) <br>

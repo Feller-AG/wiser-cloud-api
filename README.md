@@ -70,6 +70,7 @@ A site is a Wiser installation. If the user has granted access to your applicati
 * **Method:** `GET`
 * **Description:** Get all accessible sites. Returns the site ID and indicates whether the site is online or not. The location (gpl property) is available if at least one service on the site has defined (requested) it 
 
+Response:
 ```json
 {
   "sites": [
@@ -91,6 +92,7 @@ Site details provide all available information about the site.
 * **Parameters:**
     * **siteId** `(path, string, required)` - The id of the site.
 
+Response:
 ```json
 {
         "id": "4c788521-9001-4bdd-9287-0e9b544c411e",

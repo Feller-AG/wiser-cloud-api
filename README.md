@@ -126,14 +126,14 @@ Response:
 "ambientTemperature" = current temperature in the heating zone <br>
 "targetTemperature" = desired temperature (set point) for the heating zone <br>
 "boost_temperature" = How much temperature will be increased from the set point (Default by 2 Deg.) <br>
-"unit" = degree unit used (C = Celsius)
+"unit" = degree unit used (C = Celsius) <br>
 "thirdPartyEnabled" = If "false" the end user has disabled external control of this heating group
 
 <br>
 
 ## Heating-controls
 
-### Boost using default boost temperature for the site
+### Using default boost temperature for the site
 
 This function increases room temperature from the current temperature set point
 

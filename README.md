@@ -105,7 +105,8 @@ Response:
                 "ambientTemperature": 21.5,
                 "targetTemperature": 25.5,
                 "boost_temperature": 2,     
-                "unit": "C"
+                "unit": "C",
+                "thirdPartyEnabled": true
             },
             {
                 "id": 2,
@@ -113,7 +114,8 @@ Response:
                 "ambientTemperature": 21.5,
                 "targetTemperature": 25.5,
                 "boost_temperature": 2,     
-                "unit": "C"
+                "unit": "C",
+                "thirdPartyEnabled": true
              }
         ]
 }
@@ -125,6 +127,7 @@ Response:
 "targetTemperature" = desired temperature (set point) for the heating zone <br>
 "boost_temperature" = How much temperature will be increased from the set point (Default by 2 Deg.) <br>
 "unit" = degree unit used (C = Celsius)
+"thirdPartyEnabled" = If "false" the end user has disabled external control of this heating group
 
 <br>
 

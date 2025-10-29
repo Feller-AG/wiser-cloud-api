@@ -1,7 +1,9 @@
-# Wiser by Feller cloud API (in Work)
+# Wiser by Feller Cloud API for Partners
 
-The Wiser Cloud API is a service designed for partners who want to develop new applications for Wiser by Feller. Currently, we are providing access only for heating controls. Wiser by Feller end users have full control over which third-party apps they grant access to, and they can modify these settings at any time.
-As our onboarding process is currently in progress, we kindly ask you to contact us and provide details about your project by emailing partner.api@feller.ch with the subject line: "Partner Access Request." We will validate your request and provide the necessary information about the next steps. Please note that this service is exclusively available to Feller business partners and not to private individuals.
+The Wiser Cloud API is a dedicated service for Feller business partners aiming to develop innovative applications for the [Wiser by Feller](https://www.feller.ch/de/connected-buildings/wiser-by-feller) connected home platform. Currently, API access is available for heating controls, with plans to expand functionality in the future. As a partner, you have the opportunity to co-innovate with Wiser by Feller, shaping the future of smart living by creating new use cases that enhance user experiences and contribute to greener homes. End users retain full control over which third-party apps they authorize, with the ability to manage access settings at any time. To begin the process, please contact us with details about your project by emailing partner.api@feller.ch using the subject line: “Partner Access Request”. We will review your request and guide you through the next steps. You’re also welcome to share any feedback or proposals regarding the API by sending an email to this address.
+<br><br>
+⚠️ Please note that this service is exclusively available to Feller business partners and is not open to private individuals. [Terms of Use](www.feller.ch).
+<br><br>
 
 ## Get started
 

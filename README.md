@@ -6,7 +6,9 @@ The Wiser Cloud API is a dedicated service for Feller business partners aiming t
 <br><br>
 
 ## Overview
-![overview](./images/Overview.png)
+<p align="center">
+<img src="./images/overview.png">
+</p>
 
 ## Get started
 

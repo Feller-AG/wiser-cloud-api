@@ -5,6 +5,9 @@ The Wiser Cloud API is a dedicated service for Feller business partners aiming t
 ⚠️ Please note that this service is exclusively available to Feller business partners and is not open to private individuals. [Terms of Use](www.feller.ch).
 <br><br>
 
+## Overview
+![overview](./images/Overview.png)
+
 ## Get started
 
 This documentation provides you with all the information you need to integrate your applications with the Wiser by Feller Cloud.

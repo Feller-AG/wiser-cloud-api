@@ -70,12 +70,12 @@ curl --request GET \
     * [Set desired valve position by hvac group](#set-desired-valve-position-by-hvac-group)
 
 ## Site
-A site is a Wiser installation. If the user has granted access to your application, the site is considered 'accessible'.
+A site is a Wiser installation. If the user has granted access to your application in the Wiser Home App, the site is considered 'accessible'.
 
 ### Get all accessible sites
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites`
 * **Method:** `GET`
-* **Description:** Get all accessible sites. Returns the site ID and indicates whether the site is online or not. The location (gpl property) is available if at least one service on the site has defined (requested) it 
+* **Description:** Get all accessible sites. Returns the site ID and indicates whether the site is online or not + location. 
 
 Response:
 ```json
@@ -128,13 +128,17 @@ Response:
 }
 ```
 
-"id" = "hvac group" = heating zone (e.g. a room) defined by electrician in the eSetup App <br>
-"on" = If false, the user has excluded this zone from heating/cooling (i.e. heating is OFF) and boost ist set -99 <br>
-"ambientTemperature" = current temperature in the heating zone <br>
-"targetTemperature" = desired temperature (set point) for the heating zone <br>
-"boost_temperature" = How much temperature will be increased from the set point (Default by 2 Deg.) <br>
-"unit" = degree unit used (C = Celsius) <br>
-"thirdPartyEnabled" = If "false" the end user has disabled external control of this heating group
+
+| Field               | Type     | Description |
+|--------------------|----------|-------------|
+| `id`               | `int`    | Unique identifier for the heating zone (hvac group). |
+| `on`               | `boolean`| Indicates whether the heating is currently switched **on** or **off** by the user. |
+| `ambientTemperature` | `float`  | Current temperature measured in the heating zone. |
+| `targetTemperature`  | `float`  | Desired temperature (set point) for the heating zone. |
+| `boost_temperature`  | `int`    | Additional temperature increase applied above the set point. |
+| `unit`               | `string` | Temperature unit used. Value: `"C"` for Celsius. |
+| `thirdPartyEnabled`  | `boolean`| Indicates whether cloud control of this heating group has been disabled by the end user. |
+
 
 <br>
 
@@ -142,11 +146,11 @@ Response:
 
 ### Using default boost temperature for the site
 
-This function increases room temperature from the current temperature set point
+This function increases room temperature from the current temperature set point by 2 °C
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/boost`
 * **Method:** `PUT`
-* **Description:** Boost all room temperature using default (2 deg) boost temperature for the site. 
+* **Description:** Boost all room temperature using default (2 °C) boost temperature for the site. 
 * **Parameters:**
     * **siteId** `(path, string, required)`
 * **Request Body:**
@@ -158,6 +162,8 @@ This function increases room temperature from the current temperature set point
 
 ### Set boost temperature by hvac group
 
+This function allows boosting an HVAC group individually. The boost range is limited to –3°C to +3°C.
+
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/boost-temperature`
 * **Method:** `PUT`
 * **Description:** Set boost temperature by hvac group
@@ -167,40 +173,63 @@ This function increases room temperature from the current temperature set point
 * **Request Body:**
   ```json
   {
-    "value": 2.5
+    "value": 1
   }
   ```
 
-### Set target temperature by hvac group
+---
+
+## 📌 Set target temperature for an hvac group
 
 Set the desired temperature for the heating zone (i.e. room temperature)
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/target-temperature`
 * **Method:** `PUT`
-* **Description:** Set target temperature by hvac group
-* **Parameters:**
-    * **siteId** `(path, string, required)` - The id of the site.
-    * **hvacGroupId** `(path, string, required)` - The id of the hvac group.
-* **Request Body:**
+
+### Parameters
+
+| Name          | Location | Type     | Required | Description                     |
+|---------------|----------|----------|----------|---------------------------------|
+| `siteId`      | Path     | `string` | Yes      | Unique identifier of the site. |
+| `hvacGroupId` | Path     | `string` | Yes      | Unique identifier of the HVAC group. |
+  
+
+### Request Body
+
   ```json
   {
     "value": 22.9
   }
   ```
+| Field               | Type     | Description |
+|--------------------|----------|-------------|
+| `value`               | `float`    | Desired room temperature |
 
-### Set desired valve position by hvac group
+---
 
-Set the valve position. This is an **Approximation** of the valve opening: 0 = closed, 5000 = 50 %, 10000 fully open)
+## 📌 Set the desired valve position for an hvac group
+
+This endpoint allows setting the desired valve position for a given HVAC group. The position is expressed as an integer between `0` and `10000`, representing approximation of the valve opening: 0 = closed, 5000 = 50 %, 10000 fully open).
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/valve-position`
 * **Method:** `PUT`
-* **Description:** Set desired valve level by hvac group. 0 = closed, 10000 = open
-* **Parameters:**
-    * **siteId** `(path, string, required)` - The id of the site.
-    * **hvacGroupId** `(path, string, required)` - The id of the hvac group.
-* **Request Body:**
-  ```json
-  {
-    "value": 10000
-  }
-  ```
+
+### Parameters
+
+| Name          | Location | Type     | Required | Description                     |
+|---------------|----------|----------|----------|---------------------------------|
+| `siteId`      | Path     | `string` | Yes      | Unique identifier of the site. |
+| `hvacGroupId` | Path     | `string` | Yes      | Unique identifier of the HVAC group. |
+
+
+### Request Body
+
+```json
+{
+  "value": 10000
+}
+```
+| Field               | Type     | Description |
+|--------------------|----------|-------------|
+| `value`               | `int`    | Desired valve position. Range: 0 (closed) to 10000 (fully open). |
+---

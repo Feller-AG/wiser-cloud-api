@@ -64,7 +64,7 @@ curl --request GET \
 * [Site](#Site)
     * [Get all accessible sites](#📌-Get-all-accessible-sites)
     * [Get site details](#Get-site-details)
-* [Heating-controls](#Heating-Controls)
+* [Heating Controls](#%EF%B8%8F-Heating-Controls)
     * [Boost using default boost temperature for site](#boost-using-default-boost-temperature-for-site)
     * [Set boost temperature by hvacgroup](#set-boost-temperature-by-hvac-group)
     * [Set target temperature by hvac group](#set-target-temperature-by-hvac-group)

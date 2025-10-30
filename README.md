@@ -1,8 +1,6 @@
 # Wiser by Feller Cloud API for Partners
 
-The Wiser Cloud API is a dedicated service for Feller business partners aiming to develop innovative applications for the [Wiser by Feller](https://www.feller.ch/de/connected-buildings/wiser-by-feller) connected home platform. Currently, API access is available for heating controls, with plans to expand functionality in the future. As a partner, you have the opportunity to co-innovate with Wiser by Feller, shaping the future of smart living by creating new use cases and contribute to greener homes. End users retain full control over which third-party apps they authorize, with the ability to manage access settings at any time. To begin the process, please contact us with details about your project by emailing partner.api@feller.ch using the subject line: “Partner Access Request”. We will review your request and guide you through the next steps. You’re also welcome to share any feedback or proposals regarding the API by sending an email to this address.
-<br><br>
-⚠️ Please note that this service is exclusively available to Feller business partners and is not open to private individuals. [Terms of Use](www.feller.ch).
+The Wiser Cloud API is a dedicated service for Feller business partners aiming to develop innovative applications for the [Wiser by Feller](https://www.feller.ch/de/connected-buildings/wiser-by-feller) connected home platform. Currently, API access is available for heating controls, with plans to expand functionality in the future. As a partner, you have the opportunity to co-innovate with Wiser by Feller, shaping the future of smart living by creating new use cases and contribute to greener homes. End users retain full control over which third-party apps they authorize, with the ability to manage access settings at any time. To begin the process, please contact us with details about your project by emailing partner.api@feller.ch using the subject line: “Partner Access Request”. We will review your request and guide you through the next steps. You’re also welcome to share any feedback or proposals regarding the API by sending an email to this address. Please note that this service is exclusively available to Feller business partners and is not open to private individuals [Terms of Use](https://www.feller.ch).
 <br><br>
 
 ## Overview
@@ -15,17 +13,18 @@ The Wiser Cloud API is a dedicated service for Feller business partners aiming t
 This documentation provides you with all the information you need to integrate your applications with the Wiser by Feller Cloud.
 
 This guide is divided into two main sections:
-1. Authentication
-   Before you can start using the Wiser by Feller Cloud API, you'll need to authenticate your requests. As soon as your appliction is accepted, you will receive a unique client_id and client_secret. These credentials are used to obtain an access token, which is required for all API calls.
-2. API Documentation
-   This section provides detailed information about the available API endpoints, including request methods, parameters, response codes, and example payloads. You'll find comprehensive documentation for each endpoint, along with code samples to help you get started quickly.
-   We encourage you to explore the API documentation and discover the possibilities of integrating with the Wiser by Feller Cloud. If you have any questions or require further assistance, please don't hesitate to contact our support team.
+1. Authentication.
+   Before you can use the Wiser by Feller Cloud API, you must authenticate your requests. Once your application is approved, you will receive a unique client_id and client_secret. These credentials are required to obtain an access token, which is mandatory for all API calls.
+   <br><br>
+3. API Documentation.
+   This section offers in-depth details on all available API endpoints, including request methods, parameters, response codes, and sample payloads. Each endpoint is thoroughly documented and accompanied by code examples to help you get started quickly.
+We encourage you to explore the API documentation and discover the full potential of integrating with the Wiser by Feller Cloud. If you have any questions or need further assistance, please contact our team (partner.api@feller.ch).
 
 
-### Authentication
+# Authentication
 A Machine to Machine Application represents a program that interacts with an API where there is no user involved.
 
-**Please note that the provided access_token is short-lived and will expire 2 hours after its creation. You will need to generate a new token after it expires.**
+⚠️ **Please note that the provided access_token is short-lived and will expire 2 hours after its creation. You will need to generate a new token after it expires.**
 
 ![image info](./images/api_flow.png)
 

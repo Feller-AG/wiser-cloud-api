@@ -17,8 +17,7 @@ This guide is divided into two main sections:
    Before you can use the Wiser by Feller Cloud API, you must authenticate your requests. Once your application is approved, you will receive a unique client_id and client_secret. These credentials are required to obtain an access token, which is mandatory for all API calls.
    <br><br>
 3. [API Documentation](#-api-documentation).
-   This section offers in-depth details on all available API endpoints, including request methods, parameters, response codes, and sample payloads. Each endpoint is thoroughly documented and accompanied by code examples to help you get started quickly.
-We encourage you to explore the API documentation and discover the full potential of integrating with the Wiser by Feller Cloud. If you have any questions or need further assistance, please contact our team (partner.api@feller.ch).
+   This section offers in-depth details on all available API endpoints, including request methods, parameters, response codes, and sample payloads. We encourage you to explore the API documentation and discover the full potential of integrating with the Wiser by Feller Cloud. If you have any questions or need further assistance, please contact our team: partner.api@feller.ch
 
 
 # Authentication

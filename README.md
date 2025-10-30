@@ -94,7 +94,7 @@ Retrieve all accessible sites. Returns the site ID, its online status, and locat
 ```
 | Field               | Type     | Description |
 |--------------------|----------|-------------|
-| `id`               | `int`    | Unique identifier of the site. |
+| `id`               | `string`    | Unique identifier of the site. |
 | `online`           | `boolean`| Indicates whether the site is online or not |
 | `gpl`             | `string`  | Site location |
 ---
@@ -147,7 +147,7 @@ This endpoint provides all available information about the site.
 | Field               | Type     | Description |
 |--------------------|----------|-------------|
 | `id`               | `int`    | Unique identifier of the hvac group. |
-| `on`               | `boolean`| Indicates whether the heating is currently switched **on** or **off** by the user. |
+| `on`               | `boolean`| Indicates whether the hvac group is currently switched off by the user. |
 | `ambientTemperature` | `float`  | Current temperature measured in the heating zone. |
 | `targetTemperature`  | `float`  | Desired temperature (set point) for the heating zone. |
 | `boost_temperature`  | `int`    | Additional temperature increase applied above the set point. |

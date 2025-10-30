@@ -10,7 +10,7 @@ The Wiser Cloud API is a dedicated service for Feller business partners aiming t
 
 ## Get started
 
-This documentation provides you with all the information you need to integrate your applications with the Wiser by Feller Cloud.
+This documentation contains everything you need to integrate your application with the Wiser by Feller Cloud.
 
 This guide is divided into two main sections:
 1. [Authentication](#authentication).
@@ -70,7 +70,7 @@ curl --request GET \
     * [Set desired valve position for a hvac group](#-set-the-desired-valve-position-for-a-hvac-group)
 
 ## Site
-A site refers to a Wiser installation. If a user has granted access to your application via the Wiser Home App, the site is considered accessible. A site includes one or more "hvac groups", which represent heating zones such as a living room. These groups are defined by the electrician in the eSetup app.
+A “site” refers to a single Wiser installation, such as a single family home or an apartment. When a user grants your application access through the Wiser Home App, that site becomes accessible. Each site can contain zero, one, or multiple “HVAC groups,” which represent heating zones like a living room. These groups are set up by the electrician during comissioning phase using the eSetup app.
 
 ## 📌 Get all accessible sites
 

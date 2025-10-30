@@ -75,7 +75,7 @@ A site refers to a Wiser installation. If a user has granted access to your appl
 
 ## 📌 Get all accessible sites
 
-Get all accessible sites. Returns the site ID and indicates whether the site is online or not + location. 
+Retrieve all accessible sites. Returns the site ID, its online status, and location.
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites`
 * **Method:** `GET`

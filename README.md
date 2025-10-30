@@ -57,8 +57,9 @@ curl --request GET \
 ```
 
 ***
+---
 
-## API Documentation
+# API Documentation
 
 * [Site](#site)
     * [Get all accessible sites](#get-all-accessible-site-details)
@@ -72,12 +73,14 @@ curl --request GET \
 ## Site
 A site is a Wiser installation. If the user has granted access to your application in the Wiser Home App, the site is considered 'accessible'.
 
-### Get all accessible sites
+## 📌 Get all accessible sites
+
+Get all accessible sites. Returns the site ID and indicates whether the site is online or not + location. 
+
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites`
 * **Method:** `GET`
-* **Description:** Get all accessible sites. Returns the site ID and indicates whether the site is online or not + location. 
 
-Response:
+### Response:
 ```json
 {
   "sites": [
@@ -89,17 +92,29 @@ Response:
   ]
 }
 ```
+| Field               | Type     | Description |
+|--------------------|----------|-------------|
+| `id`               | `int`    | Unique identifier of the site. |
+| `online`           | `boolean`| Indicates whether the site is online or not |
+| `gpl`             | `string`  | Site location |
+---
 
-### Get site details
-Site details provide all available information about the site.
+## 📌 Get site details
+
+This endpoint provides all available information about the site.
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}`
 * **Method:** `GET`
-* **Description:** Get all site details*
-* **Parameters:**
-    * **siteId** `(path, string, required)` - The id of the site.
+  
+### Parameters
 
-Response:
+| Name          | Location | Type     | Required | Description                     |
+|---------------|----------|----------|----------|---------------------------------|
+| `siteId`      | Path     | `string` | Yes      | Unique identifier of the site. |
+
+
+### Response
+
 ```json
 {
         "id": "4c788521-9001-4bdd-9287-0e9b544c411e",
@@ -131,7 +146,7 @@ Response:
 
 | Field               | Type     | Description |
 |--------------------|----------|-------------|
-| `id`               | `int`    | Unique identifier for the heating zone (hvac group). |
+| `id`               | `int`    | Unique identifier of the hvac group. |
 | `on`               | `boolean`| Indicates whether the heating is currently switched **on** or **off** by the user. |
 | `ambientTemperature` | `float`  | Current temperature measured in the heating zone. |
 | `targetTemperature`  | `float`  | Desired temperature (set point) for the heating zone. |
@@ -139,49 +154,70 @@ Response:
 | `unit`               | `string` | Temperature unit used. Value: `"C"` for Celsius. |
 | `thirdPartyEnabled`  | `boolean`| Indicates whether cloud control of this heating group has been disabled by the end user. |
 
+---
 
-<br>
+# 🌡️ Heating Controls
 
-## Heating-controls
+This set of endpoints allows external systems to control heating behavior within a Wiser installation ("site"). Each hvac group can be managed independently, including setting temperatures, valve positions, and boost levels. To maintain control over an hvac group, your system must call the relevant endpoint **at least once every 15 minutes**. If no update is received within this interval, the Wiser system will automatically resume control of the heating group to ensure consistent operation.
 
-### Using default boost temperature for the site
+---
 
-This function increases room temperature from the current temperature set point by 2 °C
+## 📌 Activate the default boost temperature for the entire site.
+
+This endpoint enables to boost all hvac groups by +2 °C.
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/boost`
 * **Method:** `PUT`
-* **Description:** Boost all room temperature using default (2 °C) boost temperature for the site. 
-* **Parameters:**
-    * **siteId** `(path, string, required)`
-* **Request Body:**
+
+### Parameters
+
+| Name          | Location | Type     | Required | Description                     |
+|---------------|----------|----------|----------|---------------------------------|
+| `siteId`      | Path     | `string` | Yes      | Unique identifier of the site. |
+
+### Request Body
+
   ```json
   {
     "enabled": true
   }
   ```
+| Field               | Type     | Description |
+|--------------------|----------|-------------|
+| `enabled`               | `boolean`    | Activate / De-activate boosting |
 
-### Set boost temperature by hvac group
+---
 
-This function allows boosting an HVAC group individually. The boost range is limited to –3°C to +3°C.
+## 📌 Set boost temperature for an hvac group
+
+This endpoint allows boosting individual hvac groups. The boost range is limited to –3°C to +3°C, adjustable in 0.5°C increments.
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/boost-temperature`
 * **Method:** `PUT`
-* **Description:** Set boost temperature by hvac group
-* **Parameters:**
-    * **siteId** `(path, string, required)` - The id of the site.
-    * **hvacGroupId** `(path, string, required)` - The id of the hvac group.
-* **Request Body:**
+
+### Parameters
+
+| Name          | Location | Type     | Required | Description                     |
+|---------------|----------|----------|----------|---------------------------------|
+| `siteId`      | Path     | `string` | Yes      | Unique identifier of the site. |
+| `hvacGroupId` | Path     | `string` | Yes      | Unique identifier of the hvac group. |
+
+### Request Body
+
   ```json
   {
-    "value": 1
+    "value": 1.5
   }
   ```
+| Field               | Type     | Description |
+|--------------------|----------|-------------|
+| `value`               | `float`    | Desired boost temperature |
 
 ---
 
 ## 📌 Set target temperature for an hvac group
 
-Set the desired temperature for the heating zone (i.e. room temperature)
+Set the desired temperature for a heating group (room temperature setpoint)
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/target-temperature`
 * **Method:** `PUT`
@@ -191,7 +227,7 @@ Set the desired temperature for the heating zone (i.e. room temperature)
 | Name          | Location | Type     | Required | Description                     |
 |---------------|----------|----------|----------|---------------------------------|
 | `siteId`      | Path     | `string` | Yes      | Unique identifier of the site. |
-| `hvacGroupId` | Path     | `string` | Yes      | Unique identifier of the HVAC group. |
+| `hvacGroupId` | Path     | `string` | Yes      | Unique identifier of the hvac group. |
   
 
 ### Request Body
@@ -219,7 +255,7 @@ This endpoint allows setting the desired valve position for a given HVAC group. 
 | Name          | Location | Type     | Required | Description                     |
 |---------------|----------|----------|----------|---------------------------------|
 | `siteId`      | Path     | `string` | Yes      | Unique identifier of the site. |
-| `hvacGroupId` | Path     | `string` | Yes      | Unique identifier of the HVAC group. |
+| `hvacGroupId` | Path     | `string` | Yes      | Unique identifier of the hvac group. |
 
 
 ### Request Body

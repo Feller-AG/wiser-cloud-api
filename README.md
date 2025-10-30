@@ -62,13 +62,13 @@ curl --request GET \
 # 📄 API Documentation
 
 * [Site](#Site)
-    * [Get all accessible sites](#📌-Get-all-accessible-sites)
-    * [Get site details](#Get-site-details)
+    * [Get all accessible sites](#-get-all-accessible-sites)
+    * [Get site details](#-get-site-details)
 * [Heating Controls](#%EF%B8%8F-Heating-Controls)
-    * [Boost using default boost temperature for site](#boost-using-default-boost-temperature-for-site)
-    * [Set boost temperature by hvacgroup](#set-boost-temperature-by-hvac-group)
-    * [Set target temperature by hvac group](#set-target-temperature-by-hvac-group)
-    * [Set desired valve position by hvac group](#set-desired-valve-position-by-hvac-group)
+    * [Set the default boost temperature for a site](#-set-the-default-boost-temperature-for-the-entire-site)
+    * [Set boost temperature for a hvac group](#-set-boost-temperature-for-a-hvac-group)
+    * [Set target temperature for a hvac group](#-set-target-temperature-for-a-hvac-group)
+    * [Set desired valve position for a hvac group](#-set-the-desired-valve-position-for-a-hvac-group)
 
 ## Site
 A site refers to a Wiser installation. If a user has granted access to your application via the Wiser Home App, the site is considered accessible. A site includes one or more "hvac groups", which represent heating zones such as a living room. These groups are defined by the electrician in the eSetup app.
@@ -162,7 +162,7 @@ This set of endpoints allows external systems to control heating behavior within
 
 ---
 
-## 📌 Activate the default boost temperature for the entire site.
+## 📌 Set the default boost temperature for the entire site.
 
 This endpoint enables to boost all hvac groups by +2 °C.
 
@@ -188,7 +188,7 @@ This endpoint enables to boost all hvac groups by +2 °C.
 
 ---
 
-## 📌 Set boost temperature for an hvac group
+## 📌 Set boost temperature for a hvac group
 
 This endpoint allows boosting individual hvac groups. The boost range is limited to –3°C to +3°C, adjustable in 0.5°C increments.
 
@@ -215,7 +215,7 @@ This endpoint allows boosting individual hvac groups. The boost range is limited
 
 ---
 
-## 📌 Set target temperature for an hvac group
+## 📌 Set target temperature for a hvac group
 
 Set the desired temperature for a heating group (room temperature setpoint)
 
@@ -243,7 +243,7 @@ Set the desired temperature for a heating group (room temperature setpoint)
 
 ---
 
-## 📌 Set the desired valve position for an hvac group
+## 📌 Set the desired valve position for a hvac group
 
 This endpoint allows setting the desired valve position for a given HVAC group. The position is expressed as an integer between `0` and `10000`, representing approximation of the valve opening: 0 = closed, 5000 = 50 %, 10000 fully open).
 

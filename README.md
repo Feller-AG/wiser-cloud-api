@@ -59,19 +59,19 @@ curl --request GET \
 ***
 ---
 
-# API Documentation
+# 📄 API Documentation
 
-* [Site](#site)
-    * [Get all accessible sites](#get-all-accessible-site-details)
-    * [Get site details](#get-site-details)
-* [Heating-controls](#heating-controls)
+* [Site](#Site)
+    * [Get all accessible sites](#📌-Get-all-accessible-sites)
+    * [Get site details](#Get-site-details)
+* [Heating-controls](#Heating-Controls)
     * [Boost using default boost temperature for site](#boost-using-default-boost-temperature-for-site)
     * [Set boost temperature by hvacgroup](#set-boost-temperature-by-hvac-group)
     * [Set target temperature by hvac group](#set-target-temperature-by-hvac-group)
     * [Set desired valve position by hvac group](#set-desired-valve-position-by-hvac-group)
 
 ## Site
-A site is a Wiser installation. If the user has granted access to your application in the Wiser Home App, the site is considered 'accessible'.
+A site refers to a Wiser installation. If a user has granted access to your application via the Wiser Home App, the site is considered accessible. A site includes one or more "hvac groups", which represent heating zones such as a living room. These groups are defined by the electrician in the eSetup app.
 
 ## 📌 Get all accessible sites
 

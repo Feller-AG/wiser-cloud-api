@@ -218,7 +218,7 @@ This endpoint allows boosting individual hvac groups. The boost range is limited
 
 ## 📌 Set target temperature for a hvac group
 
-Set the desired temperature for a hvac group (room temperature setpoint) between +5 °C ... +30 °C. This endpoint overrides any user-defined minimum or maximum temperature limits that may have been previously configured.
+Set the desired temperature for a hvac group (room temperature setpoint) between +5 °C ... +30 °C. This endpoint also overrides any user-defined minimum or maximum temperature limits that may have been previously configured in the Home App.
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/target-temperature`
 * **Method:** `PUT`

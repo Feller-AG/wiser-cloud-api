@@ -165,7 +165,7 @@ This set of endpoints allows external systems to control heating behavior within
 
 ## 📌 Set the default boost temperature for the entire site.
 
-This endpoint allows boosting all hvac groups by +2 °C relative to the user defined set points. Example. If the set points are 21 °C (in the Home App) in all havc groups, the endpoint will set the new set temperatures to 22 °C.
+This endpoint allows boosting all hvac groups by +2 °C relative to the user defined set points. Example. If the set points are 21 °C (as configured in the Home App) across all hvac groups, this endpoint will update the temperatures to 23 °C.
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/boost`
 * **Method:** `PUT`

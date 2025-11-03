@@ -67,9 +67,10 @@ curl --request GET \
     * [Set boost temperature for a hvac group](#-set-boost-temperature-for-a-hvac-group)
     * [Set target temperature for a hvac group](#-set-target-temperature-for-a-hvac-group)
     * [Set desired valve position for a hvac group](#-set-the-desired-valve-position-for-a-hvac-group)
+* [Application examples](#application-examples)
 
 ## Site
-A “site” refers to a single Wiser installation, such as a single family home or an apartment. When a user grants your application access through the Wiser Home App, that site becomes accessible. Each site can contain zero, one, or multiple “HVAC groups,” which represent heating zones like a living room. These groups are set up by the electrician during comissioning phase using the eSetup app.
+A “site” refers to a single Wiser installation, such as a single family home or an apartment. When a user grants your application access through the Wiser Home App, that site becomes accessible. Each site can contain zero, one, or many “hvac groups,” which represent heating zones like a living room. These "hvac groups" are set up by the electrician during comissioning phase using the eSetup app.
 
 ## 📌 Get all accessible sites
 
@@ -156,13 +157,15 @@ This endpoint provides all available information about the site.
 
 # 🌡️ Heating Controls
 
-This set of endpoints allows external systems to control heating behavior within a Wiser installation ("site"). Each hvac group can be managed independently, including setting temperatures, valve positions, and boost levels. To maintain control over an hvac group, your system must call the relevant endpoint **at least once every 15 minutes**. If no update is received within this interval, the Wiser system will automatically resume control of the heating group to ensure consistent operation.
+This set of endpoints allows external systems to control heating behavior within a Wiser installation ("site"). Each hvac group can be managed independently, including setting temperatures, valve positions, and boost levels. To maintain control over an hvac group, your system must call the relevant endpoint **at least once every 15 minutes**. If no update is received within this interval, the Wiser system will automatically resume control of the heating group to ensure consistent operation. 
+
+⚠️ The number of API requests is limited to 5 per minute per site.
 
 ---
 
 ## 📌 Set the default boost temperature for the entire site.
 
-This endpoint enables to boost all hvac groups by +2 °C.
+This endpoint allows boosting all hvac groups by +2 °C relative to the user defined set points. Example. If the set points are 21 °C (in the Home App) in all havc groups, the endpoint will set the new set temperatures to 22 °C.
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/boost`
 * **Method:** `PUT`
@@ -188,7 +191,7 @@ This endpoint enables to boost all hvac groups by +2 °C.
 
 ## 📌 Set boost temperature for a hvac group
 
-This endpoint allows boosting individual hvac groups. The boost range is limited to –3°C to +3°C, adjustable in 0.5°C increments.
+This endpoint allows boosting individual hvac groups. The boost range is limited to –5 °C to +5 °C.
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/boost-temperature`
 * **Method:** `PUT`
@@ -204,18 +207,18 @@ This endpoint allows boosting individual hvac groups. The boost range is limited
 
   ```json
   {
-    "value": 1.5
+    "value": 1
   }
   ```
 | Field               | Type     | Description |
 |--------------------|----------|-------------|
-| `value`               | `float`    | Desired boost temperature |
+| `value`               | `int`    | Desired boost temperature |
 
 ---
 
 ## 📌 Set target temperature for a hvac group
 
-Set the desired temperature for a heating group (room temperature setpoint)
+Set the desired temperature for a hvac group (room temperature setpoint) between +5 °C ... +30 °C. This endpoint overrides any user-defined minimum or maximum temperature limits that may have been previously configured.
 
 * **Path:** `https://user.nubes.feller.ch/api/partner/sites/{siteId}/hvac/{hvacGroupId}/target-temperature`
 * **Method:** `PUT`
@@ -267,3 +270,6 @@ This endpoint allows setting the desired valve position for a given HVAC group. 
 |--------------------|----------|-------------|
 | `value`               | `int`    | Desired valve position. Range: 0 (closed) to 10000 (fully open). |
 ---
+## Application examples
+
+## 🚧 Coming Soon

@@ -122,7 +122,6 @@ This endpoint provides all available information about the site.
         "hvac": [
             {
                 "id": 1,
-                "on":true
                 "ambientTemperature": 21.5,
                 "targetTemperature": 25.5,
                 "boost_temperature": 2,     
@@ -131,7 +130,6 @@ This endpoint provides all available information about the site.
             },
             {
                 "id": 2,
-                "on":true
                 "ambientTemperature": 21.5,
                 "targetTemperature": 25.5,
                 "boost_temperature": 2,     

@@ -144,7 +144,6 @@ This endpoint provides all available information about the site.
 | Field               | Type     | Description |
 |--------------------|----------|-------------|
 | `id`               | `int`    | Unique identifier of the hvac group. |
-| `on`               | `boolean`| Indicates whether the hvac group is currently switched off by the user. |
 | `ambientTemperature` | `float`  | Current temperature measured in the heating zone. |
 | `targetTemperature`  | `float`  | Desired temperature (set point) for the heating zone. |
 | `boost_temperature`  | `int`    | Additional temperature increase applied above the set point. |

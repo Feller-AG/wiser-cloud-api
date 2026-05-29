@@ -268,5 +268,5 @@ This endpoint allows setting the desired valve position for a given HVAC group. 
 | `value`               | `int`    | Desired valve position. Range: 0 (closed) to 10000 (fully open). |
 ---
 ## Application examples
-
-## 🚧 Coming Soon
+### Energy Optimizer
+Turn your building into an energy storage with [Solar Manager](https://wwww.solarmanager.ch) and Wiser by Feller. Use the thermal mass of your building to store energy. This transforms the building structure into a sustainable, cost-saving thermal battery that maximizes your self-consumption rate. More information in: [DE](https://mam.feller.ch/public/M-1770385409), [FR](https://mam.feller.ch/public/M-1770385505) or [IT](https://mam.feller.ch/public/M-1770385570).
